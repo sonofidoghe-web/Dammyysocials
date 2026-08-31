@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Dammy Social</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --green:#7C9C3F;
@@ -14,7 +17,8 @@
     --placeholder:#9a9a9a;
     --bg:#ffffff;
     --page-bg:#f5f6f4;
-    --card-shadow:0 1px 2px rgba(0,0,0,0.04);
+    --card-shadow:0 1px 2px rgba(0,0,0,0.03);
+    --font-display:'Baloo 2', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   *{box-sizing:border-box;}
   body.dark{
@@ -41,7 +45,7 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:12px 16px;
+    padding:16px 20px;
     background:var(--bg);
     border-bottom:1px solid var(--border);
     position:sticky;
@@ -62,20 +66,21 @@
     justify-content:center;
     padding:6px;
   }
-  .icon-btn svg{ width:22px; height:22px; }
+  .icon-btn svg{ width:24px; height:24px; }
 
   .header-right{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:18px;
   }
   .balance-pill{
     background:var(--page-bg);
-    border:1px solid var(--border);
+    border:none;
     border-radius:999px;
-    padding:6px 14px;
-    font-weight:800;
-    font-size:14px;
+    padding:9px 18px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:15px;
     color:var(--green);
     white-space:nowrap;
   }
@@ -84,30 +89,32 @@
   }
   .bell-badge{
     position:absolute;
-    top:-4px;
-    right:-6px;
+    top:-6px;
+    right:-8px;
     background:#5aa332;
     color:#fff;
     font-size:11px;
     font-weight:800;
+    font-family:var(--font-display);
     border-radius:999px;
-    min-width:18px;
-    height:18px;
+    min-width:20px;
+    height:20px;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:0 4px;
+    padding:0 5px;
   }
   .avatar{
-    width:34px;
-    height:34px;
+    width:44px;
+    height:44px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     color:#fff;
-    font-weight:800;
-    font-size:15px;
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:18px;
     overflow:hidden;
     flex-shrink:0;
   }
@@ -261,55 +268,59 @@
     padding:24px 16px 60px;
   }
   h1.welcome{
-    font-size:30px;
+    font-family:var(--font-display);
+    font-size:36px;
     font-weight:800;
-    margin:0 0 6px;
+    margin:0 0 8px;
     letter-spacing:-0.5px;
   }
   p.welcome-sub{
-    font-size:15px;
+    font-size:16px;
     color:var(--gray-text);
-    margin:0 0 22px;
+    margin:0 0 26px;
   }
 
   .card{
     background:var(--bg);
     border:1px solid var(--border);
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:18px;
+    border-radius:20px;
+    padding:28px;
+    margin-bottom:20px;
     box-shadow:var(--card-shadow);
   }
   .card-label{
-    font-size:14px;
+    font-size:15px;
     color:var(--gray-text);
-    margin:0 0 10px;
+    margin:0 0 14px;
   }
   .card-value{
-    font-size:32px;
+    font-family:var(--font-display);
+    font-size:42px;
     font-weight:800;
-    margin:0 0 12px;
+    margin:0 0 20px;
     color:var(--green);
+    line-height:1.1;
   }
   .card-value.dim{
     color:var(--text);
-    font-size:24px;
+    font-size:32px;
   }
   .card-sub{
-    font-size:14px;
+    font-size:15px;
     color:var(--gray-text);
     margin:0 0 4px;
   }
   .card-link{
-    color:var(--green);
-    font-weight:700;
+    color:var(--gray-text);
+    font-weight:600;
     font-size:15px;
     text-decoration:none;
   }
 
   .section-label{
+    font-family:var(--font-display);
     font-size:14px;
-    font-weight:800;
+    font-weight:700;
     letter-spacing:0.04em;
     margin:26px 0 12px;
   }
@@ -334,33 +345,34 @@
   .qa-card{
     background:var(--bg);
     border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+    border-radius:18px;
+    padding:20px;
     text-decoration:none;
     color:var(--text);
     display:block;
     box-shadow:var(--card-shadow);
   }
   .qa-icon{
-    width:42px;
-    height:42px;
-    border-radius:12px;
+    width:50px;
+    height:50px;
+    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:14px;
+    margin-bottom:16px;
   }
-  .qa-icon svg{ width:20px; height:20px; }
+  .qa-icon svg{ width:22px; height:22px; }
   .qa-title{
-    font-size:17px;
-    font-weight:800;
+    font-family:var(--font-display);
+    font-size:18px;
+    font-weight:700;
     margin:0 0 6px;
   }
   .qa-desc{
-    font-size:13.5px;
+    font-size:14px;
     color:var(--gray-text);
     margin:0;
-    line-height:1.4;
+    line-height:1.45;
   }
 
   .support-card{
@@ -368,25 +380,26 @@
   }
   .support-box{
     background:var(--page-bg);
-    border-radius:12px;
-    padding:16px;
+    border:1.5px dashed var(--border);
+    border-radius:14px;
+    padding:20px;
     font-size:15px;
-    color:var(--text);
-    margin-bottom:16px;
+    color:var(--gray-text);
+    margin-bottom:18px;
   }
   .btn-green{
     display:inline-block;
     background:var(--green);
     color:#fff;
-    font-weight:800;
+    font-family:var(--font-display);
+    font-weight:700;
     font-size:14px;
     letter-spacing:0.03em;
     border:none;
-    border-radius:12px;
-    padding:14px 20px;
+    border-radius:14px;
+    padding:16px 28px;
     text-decoration:none;
     cursor:pointer;
-    width:100%;
     text-align:center;
   }
   .btn-green:hover{ background:var(--green-dark); }
@@ -425,8 +438,9 @@
   }
 
   .help-card h3{
+    font-family:var(--font-display);
     font-size:19px;
-    font-weight:800;
+    font-weight:700;
     margin:0 0 8px;
   }
   .help-card p{
@@ -438,24 +452,36 @@
   .help-btn{
     display:flex;
     align-items:center;
-    gap:10px;
-    padding:14px 16px;
-    border-radius:12px;
-    font-weight:800;
+    gap:12px;
+    padding:15px 18px;
+    border-radius:14px;
+    font-family:var(--font-display);
+    font-weight:700;
     font-size:15px;
     text-decoration:none;
     margin-bottom:10px;
   }
-  .help-btn svg{ width:20px; height:20px; flex-shrink:0; }
+  .help-btn .help-icon-circle{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .help-btn svg{ width:15px; height:15px; flex-shrink:0; }
   .help-whatsapp{
-    background:#4CBB63;
+    background:#5AC46A;
     color:#fff;
   }
+  .help-whatsapp .help-icon-circle{ background:#3A9A4A; }
   .help-telegram{
     background:var(--bg);
     color:var(--text);
     border:1px solid var(--border);
   }
+  .help-telegram .help-icon-circle{ background:#3d9be0; }
   .help-email{
     display:flex;
     align-items:center;
@@ -669,11 +695,11 @@
     <h3>Need quick help?</h3>
     <p>Reach support directly if you want a faster response outside tickets.</p>
     <a class="help-btn help-whatsapp" id="whatsappBtn" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.29-1.39c1.44.78 3.06 1.2 4.75 1.2h.01c5.46 0 9.91-4.45 9.91-9.9C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.01c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.14.82.84-3.06-.2-.32a8.03 8.03 0 0 1-1.24-4.25c0-4.44 3.61-8.05 8.06-8.05 2.15 0 4.17.84 5.69 2.37a7.99 7.99 0 0 1 2.36 5.69c0 4.44-3.61 8.14-8.05 8.14Zm4.4-6.02c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.46-.28Z"></path></svg>
+      <span class="help-icon-circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.44 1.32 4.94L2 22l5.29-1.39c1.44.78 3.06 1.2 4.75 1.2h.01c5.46 0 9.91-4.45 9.91-9.9C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.01c-1.5 0-2.98-.4-4.27-1.16l-.3-.18-3.14.82.84-3.06-.2-.32a8.03 8.03 0 0 1-1.24-4.25c0-4.44 3.61-8.05 8.06-8.05 2.15 0 4.17.84 5.69 2.37a7.99 7.99 0 0 1 2.36 5.69c0 4.44-3.61 8.14-8.05 8.14Zm4.4-6.02c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.46-.28Z"></path></svg></span>
       Chat on WhatsApp
     </a>
     <a class="help-btn help-telegram" id="telegramBtn" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="#3d9be0"><path d="M21.94 3.5 2.5 11.15c-1.2.5-1.19 1.18-.22 1.48l4.98 1.55 1.94 5.9c.24.66.42.92.86.92.4 0 .6-.18.85-.42l2.05-1.98 4.55 3.36c.83.46 1.44.22 1.65-.77l3-14.13c.3-1.23-.47-1.79-1.22-1.36Zm-13.2 9.4 9.06-5.72c.44-.27.84-.12.5.18l-7.55 6.82-.3 3.2-1.7-4.48Z"></path></svg>
+      <span class="help-icon-circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.94 3.5 2.5 11.15c-1.2.5-1.19 1.18-.22 1.48l4.98 1.55 1.94 5.9c.24.66.42.92.86.92.4 0 .6-.18.85-.42l2.05-1.98 4.55 3.36c.83.46 1.44.22 1.65-.77l3-14.13c.3-1.23-.47-1.79-1.22-1.36Zm-13.2 9.4 9.06-5.72c.44-.27.84-.12.5.18l-7.55 6.82-.3 3.2-1.7-4.48Z"></path></svg></span>
       Open Telegram
     </a>
     <div class="help-email">
