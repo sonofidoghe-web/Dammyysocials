@@ -234,13 +234,15 @@
   }
   .sidebar-logo img{ height:32px; }
   .sidebar-section-label{
+    font-family:var(--font-display);
     font-size:12px;
-    font-weight:800;
+    font-weight:700;
     letter-spacing:0.06em;
     color:var(--gray-text);
     padding:16px 20px 8px;
   }
   .sidebar-link{
+    font-family:var(--font-display);
     display:flex;
     align-items:center;
     gap:14px;
@@ -720,6 +722,7 @@
     setDoc,
     collection,
     query,
+    where,
     orderBy,
     limit,
     writeBatch,
@@ -848,16 +851,28 @@
     });
     unsubscribers.push(unsubUser);
 
-    /* Live global inventory */
-    const inventoryRef = doc(db, 'inventory', 'summary');
-    const unsubInventory = onSnapshot(inventoryRef, (snap) => {
-      const data = snap.data() || {};
-      const logs = data.logsCount ?? 0;
-      const tools = data.toolsCount ?? 0;
-      document.getElementById('inventoryTotal').textContent = (logs + tools).toLocaleString();
-      document.getElementById('inventoryBreakdown').textContent = `${logs} logs \u00B7 ${tools} tools`;
+    /* Live global inventory — computed from actual available stock,
+       not a manually-maintained counter. Logs come from the Logs Store
+       (logsInventory, status == 'available'); tools will work the same
+       way once a Tools Store adds to a 'toolsInventory' collection. */
+    const logsInvQuery = query(collection(db, 'logsInventory'), where('status', '==', 'available'));
+    const toolsInvQuery = query(collection(db, 'toolsInventory'), where('status', '==', 'available'));
+    let liveLogsCount = 0;
+    let liveToolsCount = 0;
+    function renderInventoryTotals(){
+      document.getElementById('inventoryTotal').textContent = (liveLogsCount + liveToolsCount).toLocaleString();
+      document.getElementById('inventoryBreakdown').textContent = `${liveLogsCount} logs \u00B7 ${liveToolsCount} tools`;
+    }
+    const unsubLogsInv = onSnapshot(logsInvQuery, (snap) => {
+      liveLogsCount = snap.size;
+      renderInventoryTotals();
     });
-    unsubscribers.push(unsubInventory);
+    unsubscribers.push(unsubLogsInv);
+    const unsubToolsInv = onSnapshot(toolsInvQuery, (snap) => {
+      liveToolsCount = snap.size;
+      renderInventoryTotals();
+    });
+    unsubscribers.push(unsubToolsInv);
 
     /* Live site contact settings */
     const contactRef = doc(db, 'settings', 'contact');
